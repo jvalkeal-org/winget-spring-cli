@@ -1,0 +1,45 @@
+name: Update
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  update:
+    name: Update
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout winget manifests
+        uses: actions/checkout@v4
+        with:
+          path: winget-jr
+
+      - name: Checkout winget-pkgs fork
+        uses: actions/checkout@v4
+        with:
+          repository: jvalkeal-org/winget-pkgs
+          path: winget-pkgs
+          token: ${{ secrets.JRELEASER_GITHUB_TOKEN }}
+
+      - name: Refresh fork
+        run: |
+          cd winget-pkgs
+          git remote add upstream https://github.com/microsoft/winget-pkgs.git
+          git pull upstream master
+
+      - name: Branch update
+        run: |
+          REF=${{ github.ref_name }}
+          BRANCH=spring-cli-installer-$REF
+          VERSION=${REF#v}
+          cd winget-pkgs
+          git checkout -b $BRANCH
+          mkdir -p manifests/v/VMware/spring-cli
+          cp -R ../winget-jr/v/VMware/spring-cli/$VERSION manifests/v/VMware/spring-cli
+          git config --global user.name github-actions[bot]
+          git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git add -A
+          git commit -a -m "spring-cli-installer: update to version ${{ github.ref_name }}"
+          git push origin $BRANCH
