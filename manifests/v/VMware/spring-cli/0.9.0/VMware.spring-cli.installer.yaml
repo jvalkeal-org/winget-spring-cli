@@ -1,4 +1,4 @@
-# Generated with JReleaser 1.12.0-SNAPSHOT at 2024-04-10T18:57:56.758019105Z
+# Generated with JReleaser 1.12.0-SNAPSHOT at 2024-04-11T10:47:12.091776673Z
 # yaml-language-server: $schema=https://aka.ms/winget-manifest.installer.1.4.0.schema.json
 
 PackageIdentifier: VMware.spring-cli
@@ -12,11 +12,11 @@ InstallModes:
 UpgradeBehavior: install
 Commands:
   - spring
-ReleaseDate: 2024-04-10
+ReleaseDate: 2024-04-11
 Installers:
   - Architecture: x64
     InstallerUrl: https://github.com/jvalkeal/spring-cli/releases/download/v0.9.0/spring-cli-installer-0.9.0-windows-x86_64.msi
-    InstallerSha256: 22761610e7a51f72dec662ef3225c651b8766ff8f3a79c7d103a3100c34ad26d
+    InstallerSha256: 36b24c34965f01e3293d167fb52ac2e2fda44f0883fa868d9438a12f96bb15e0
     ProductCode: 'spring-cli 0.9.0'
 ManifestType: installer
 ManifestVersion: 1.4.0
