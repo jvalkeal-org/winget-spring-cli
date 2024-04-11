@@ -37,7 +37,7 @@ jobs:
           cd winget-pkgs
           git checkout -b $BRANCH
           mkdir -p manifests/v/VMware/spring-cli
-          cp -R ../winget-jr/v/VMware/spring-cli/$VERSION manifests/v/VMware/spring-cli
+          cp -R ../winget-jr/manifests/v/VMware/spring-cli/$VERSION manifests/v/VMware/spring-cli
           git config --global user.name github-actions[bot]
           git config --global user.email 41898282+github-actions[bot]@users.noreply.github.com
           git add -A
