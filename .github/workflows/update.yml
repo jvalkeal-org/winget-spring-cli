@@ -23,10 +23,15 @@ jobs:
           path: winget-pkgs
           token: ${{ secrets.SPRING_CLI_ORG_JR_TOKEN }}
 
+      # - name: Refresh fork
+      #   run: |
+      #     cd winget-pkgs
+      #     git remote add upstream https://github.com/microsoft/winget-pkgs.git
+      #     git pull upstream master
       - name: Refresh fork
         run: |
           cd winget-pkgs
-          git remote add upstream https://github.com/microsoft/winget-pkgs.git
+          git remote add upstream https://github.com/jvalkeal/winget-pkgs-fake-orig.git
           git pull upstream master
 
       - name: Branch update
