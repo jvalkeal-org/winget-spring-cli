@@ -21,7 +21,7 @@ jobs:
         with:
           repository: jvalkeal-org/winget-pkgs
           path: winget-pkgs
-          token: ${{ secrets.JRELEASER_GITHUB_TOKEN }}
+          token: ${{ secrets.SPRING_CLI_ORG_JR_TOKEN }}
 
       - name: Refresh fork
         run: |
